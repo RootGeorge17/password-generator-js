@@ -2,7 +2,7 @@
 
 ## Description
 
-#### The application generates passwords dynamically by leveraging user-defined criteria for length and character types. The code validates each user input ensuring data validity.
+The application generates passwords dynamically by leveraging user-defined criteria for length and character types. The code validates each user input ensuring data validity.
 
 ## Usage
 
