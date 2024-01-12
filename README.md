@@ -2,10 +2,11 @@
 
 ## Description
 
+The application generates passwords dynamically by leveraging user-defined criteria for length and character types. The code validates each user input ensuring data validity.
 
 ## Usage
 
-#### Access the website on: 
+#### Access the website on: https://rootgeorge17.github.io/password-generator-js/
 #### The following image shows the web application's appearance and functionality:
 
 ![](assets/05-javascript-challenge-demo.png)
