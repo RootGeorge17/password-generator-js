@@ -105,7 +105,26 @@ function generatePassword() {
   const values = getPasswordOptions();
   const passwordLength = values[0];
   const characters = values[1];
-  console.log(passwordLength, characters);
+  var errors = [];
+
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    errors.push("Your password length input must be an integer between 8 and 128");
+  }
+
+  const validCharacters = ["lowercase", "uppercase", "numeric", "special characters"];
+
+  if (!validCharacters.includes(characters)) {
+    errors.push("Chosen characters for your password must be: lowercase, uppercase, numeric, special characters");
+  }
+
+  if (!errors.length) {
+    // generate password
+
+    // return password
+  }
+
+  // If there are errors, return the array of error messages
+  return errors;
 }
 
 // Get references to the #generate element
@@ -116,7 +135,13 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
+  if (Array.isArray(password)) {
+    // Display multiple errors
+    passwordText.value = password.join("\n");
+  } else {
+    // Display a single error
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
