@@ -97,30 +97,50 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  const passwordLength = arr[0];
+  const characters = arr[1];
 
+  // Check which kind of password to be generated randomly
+  if (characters === "special characters") {
+    // Generate password with special characters
+  }
+  if (characters === "numeric") {
+    // Generate password with numeric characters
+  }
+  if (characters === "uppercase") {
+    // Generate password with uppercase characters
+  }
+  if (characters === "lowercase") {
+    // Generate password with lowercase characters
+  }
 }
 
 // Function to generate password with user input
 function generatePassword() {
   const values = getPasswordOptions();
-  const passwordLength = values[0];
-  const characters = values[1];
-  var errors = [];
+  const passwordLength = values[0]; // Assigning first prompt value to passwordLength
+  const characters = values[1]; // Assining second prompt value to characters
+  var errors = []; // Empty array to store errors
 
+  // Validating password length prompt
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    // Pushing error description to the array of errors
     errors.push("Your password length input must be an integer between 8 and 128");
   }
 
+  // Valid characters to choose from
   const validCharacters = ["lowercase", "uppercase", "numeric", "special characters"];
 
+  // Validating second prompt to make sure the chosen option is a valid one
   if (!validCharacters.includes(characters)) {
+    // Pushing error description to the array of errors
     errors.push("Chosen characters for your password must be: lowercase, uppercase, numeric, special characters");
   }
 
+  // If there are no errors, generate the password and return it
   if (!errors.length) {
-    // generate password
-
-    // return password
+    // Generate password and return
+    return getRandom([passwordLength, characters]);
   }
 
   // If there are errors, return the array of error messages
@@ -136,10 +156,10 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
 
   if (Array.isArray(password)) {
-    // Display multiple errors
+    // Display errors
     passwordText.value = password.join("\n");
   } else {
-    // Display a single error
+    // Display password
     passwordText.value = password;
   }
 }
