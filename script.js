@@ -90,16 +90,18 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // Prompt user for password length
   var passwordLength = prompt("Please input your chosen password length, between 8 and 128 characters!")
+  // Prompt user for chosen characters
   var characters = prompt("Please input your chosen characters for your password, between: lowercase, uppercase, numeric, special characters!")
   return [passwordLength, characters];
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  const passwordLength = arr[0];
-  const characters = arr[1];
-  var resultArray = [];
+  const passwordLength = arr[0]; // Assigning first prompt value to passwordLength
+  const characters = arr[1]; // Assining second prompt value to characters
+  var resultArray = []; // Results array for each randomly generated character to be joined
 
   // Check which kind of password to be generated randomly
   if (characters === "special characters") {
@@ -134,7 +136,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  const values = getPasswordOptions();
+  const values = getPasswordOptions(); // Assign return value of getPasswordOptions() to the values constant
   const passwordLength = values[0]; // Assigning first prompt value to passwordLength
   const characters = values[1]; // Assining second prompt value to characters
   var errors = []; // Empty array to store errors
