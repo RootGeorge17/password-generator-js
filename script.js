@@ -99,19 +99,36 @@ function getPasswordOptions() {
 function getRandom(arr) {
   const passwordLength = arr[0];
   const characters = arr[1];
+  var resultArray = [];
 
   // Check which kind of password to be generated randomly
   if (characters === "special characters") {
     // Generate password with special characters
+    for (var i = 0; i < passwordLength; i++) {
+      resultArray.push(specialCharacters[Math.floor(Math.random() * passwordLength)])
+    }
+    return resultArray.join("");
   }
   if (characters === "numeric") {
     // Generate password with numeric characters
+    for (var i = 0; i < passwordLength; i++) {
+      resultArray.push(numericCharacters[Math.floor(Math.random() * passwordLength)])
+    }
+    return resultArray.join("");
   }
   if (characters === "uppercase") {
     // Generate password with uppercase characters
+    for (var i = 0; i < passwordLength; i++) {
+      resultArray.push(upperCasedCharacters[Math.floor(Math.random() * passwordLength)])
+    }
+    return resultArray.join("");
   }
   if (characters === "lowercase") {
     // Generate password with lowercase characters
+    for (var i = 0; i < passwordLength; i++) {
+      resultArray.push(lowerCasedCharacters[Math.floor(Math.random() * passwordLength)])
+    }
+    return resultArray.join("");
   }
 }
 
